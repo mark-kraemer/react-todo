@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AddTodoForm from './components/AddTodoForm';
+import './normalize.css'
+import './skeleton.css'
 
 class App extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      todos: {}
+    }
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
+        <h1>React Todo</h1>
+        <AddTodoForm app={this}/>
       </div>
     );
   }
