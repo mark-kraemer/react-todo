@@ -13,6 +13,20 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    var localStorageRef = localStorage.getItem('todos')
+
+    if(localStorageRef) {
+      this.setState({
+        todos : JSON.parse(localStorageRef)
+      })
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('todos', JSON.stringify(nextState.todos))
+  }
+
   render() {
     return (
       <div className="container">
