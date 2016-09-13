@@ -11,6 +11,7 @@ class AddTodoForm extends Component {
 
     todosObject['todo-' + time] = todo
     app.setState({todos: todosObject})
+    this.refs.todoForm.reset();
   }
 
   render() {

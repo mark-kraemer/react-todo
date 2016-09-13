@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AddTodoForm from './components/AddTodoForm';
+import TodoList from './components/TodoList';
 import './normalize.css'
 import './skeleton.css'
 
@@ -31,6 +32,7 @@ class App extends Component {
     return (
       <div className="container">
         <h1>React Todo</h1>
+        <TodoList app={this}/>
         <AddTodoForm app={this}/>
       </div>
     );
