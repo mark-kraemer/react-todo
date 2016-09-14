@@ -18,6 +18,10 @@ class Todo extends Component {
     this.setState({edit: false})
   }
 
+  deleteTodo() {
+
+  }
+
   renderEdit() {
     this.setState({edit: true})
   }
@@ -27,11 +31,11 @@ class Todo extends Component {
     return (
       <form onSubmit={this.saveTodo.bind(this)}>
         <div className="rows">
-          <div className="six columns">
+          <div className="eight columns">
             <input ref="todoText" type="text" className="u-full-width" defaultValue={todo} />
           </div>
-          <div className="six columns">
-            <input className="button-primary" type="submit" value="Save" />
+          <div className="four columns">
+            <input className="button-primary float-right" type="submit" value="Save" />
           </div>
         </div>
       </form>
@@ -44,7 +48,10 @@ class Todo extends Component {
       <div className="u-full-width">
         <div className="columns six">{todo}</div>
         <div className="columns six">
-          <button className="button" onClick={this.renderEdit.bind(this)}>Edit</button>
+          <div className="float-right">
+            <button className="button" onClick={this.renderEdit.bind(this)}>Edit</button>
+            <button className="button" onClick={this.deleteTodo.bind(this)}>Delete</button>
+          </div>
         </div>
       </div>
     )
