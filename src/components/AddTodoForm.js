@@ -7,9 +7,9 @@ class AddTodoForm extends Component {
     const app = this.props.app
     const time = (new Date()).getTime()
     const todosObject = app.state.todos
-    const todo = this.refs.todo.value
+    const todoText = this.refs.todo.value
 
-    todosObject['todo-' + time] = todo
+    todosObject['todo-' + time] = { text: todoText, complete: false }
     app.setState({todos: todosObject})
     this.refs.todoForm.reset();
   }

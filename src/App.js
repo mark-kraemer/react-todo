@@ -28,14 +28,28 @@ class App extends Component {
     localStorage.setItem('todos', JSON.stringify(nextState.todos))
   }
 
+  renderList(condition) {
+   const todoComponents = Object.keys(this.state.todos).map((key) => {
+      const todo = this.state.todos[key]
+      if(todo.complete === condition.isComplete) {
+        return <Todo app={this} todoKey={key} key={key} todo={todo}/>
+      }
+    })
+    return todoComponents
+  }
+
   render() {
     return (
       <div className="container">
         <h1>React Todo</h1>
         <div className="eight columns">
-          {Object.keys(this.state.todos).map((key) =>
-            <Todo app={this} todoKey={key} key={key}/>
-          )}
+          <h3>Completed</h3>
+          {this.renderList({isComplete: true})}
+        </div>
+
+        <div className="eight columns">
+          <h3>Incomplete</h3>
+          {this.renderList({isComplete: false})}
         </div>
         <AddTodoForm app={this}/>
       </div>
