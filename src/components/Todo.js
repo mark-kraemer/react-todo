@@ -19,7 +19,11 @@ class Todo extends Component {
   }
 
   deleteTodo() {
+    const app = this.props.app
+    const todosObject = app.state.todos
 
+    delete todosObject[this.props.todoKey]
+    app.setState({todos: todosObject})
   }
 
   renderEdit() {
