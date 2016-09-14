@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AddTodoForm from './components/AddTodoForm';
-import TodoList from './components/TodoList';
+import Todo from './components/Todo';
 import './normalize.css'
 import './skeleton.css'
 
@@ -32,7 +32,11 @@ class App extends Component {
     return (
       <div className="container">
         <h1>React Todo</h1>
-        <TodoList app={this}/>
+        <div className="twelve columns">
+          {Object.keys(this.state.todos).map((key) =>
+            <Todo app={this} todoKey={key} key={key}/>
+          )}
+        </div>
         <AddTodoForm app={this}/>
       </div>
     );
